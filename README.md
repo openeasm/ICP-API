@@ -4,7 +4,9 @@
 
 适用于2023年新版的`工信部ICP/IP地址/域名信息备案管理系统`。
 
-Forked from: https://github.com/wongzeon/ICP-Checker
+演示网站：https://icp.openeasm.org/query/qianxin.com
+
+注意：演示网站不提供任何SLA保证。
 # 特征
 
 ✅ 通过 `https://beian.miit.gov.cn/` 查询信息，确保与管局实际信息一致；
