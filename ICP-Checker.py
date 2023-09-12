@@ -46,7 +46,7 @@ def query_base(info):
                     raise ValueError("ValidType")
                 else:
                     info_result = info_result.group()
-            info_data = {'pageNum': '1', 'pageSize': '40', 'unitName': info_result}
+            info_data = {'pageNum': '1', 'pageSize': '40', 'unitName': info_result, 'serviceType': 1 }
             return info_data
         except ValueError as e:
             if str(e) == 'InputNone' or str(e) == 'OnlyDomainInput':
@@ -154,7 +154,7 @@ def get_beian_info(info_data, p_uuid, token, sign):
                     domain_content_approved = "无"
                 row_data = domain_owner, domain_name, domain_licence, website_licence, domain_type, domain_content_approved, domain_status, domain_approve_date
                 domain_list.append(row_data)
-            info_data = {'pageNum': i + 2, 'pageSize': '40', 'unitName': info}
+            info_data = {'pageNum': i + 2, 'pageSize': '40', 'unitName': info,'serviceType': 1 }
             if beian_info['params']['isLastPage'] is True:
                 break
             else:
@@ -171,6 +171,9 @@ cookie = get_cookies()
 cache = Cache(config={'CACHE_TYPE': 'FileSystemCache', 'CACHE_DIR': '/tmp/icp_app_cache', })
 cache.init_app(app)
 
+@app.route('/')
+def indx():
+    return """please see https://github.com/openeasm/ICP-API. <meta http-equiv="refresh" content="5; url=https://github.com/openeasm/ICP-API"/> """
 
 @app.route('/query/<item>')
 def main(item):
@@ -219,4 +222,4 @@ def main(item):
 
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5001, debug=False)
+    app.run(host='0.0.0.0', port=5001, debug=False)
