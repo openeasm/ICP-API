@@ -2,12 +2,10 @@
 
 一个简单的API，用于查询网站或企业的ICP备案信息。
 
-适用于2023年新版的`工信部ICP/IP地址/域名信息备案管理系统`。
+适用于2025年新版的`工信部ICP/IP地址/域名信息备案管理系统`。
 
-演示网站：https://icp.openeasm.org/query/qianxin.com
-
-注意：演示网站不提供任何SLA保证。
 # 特征
+✅ 缓存密钥，提高效率；
 
 ✅ 通过 `https://beian.miit.gov.cn/` 查询信息，确保与管局实际信息一致；
 
@@ -104,8 +102,14 @@ curl http://127.0.0.1:5001/query/qianxin.com?no_cache=1 | jq
 
 ⚠ 项目仅用于学习交流，不可用于商业及非法用途。
 
+⚠ 验证码识别从https://github.com/ravizhan/ICP-spider里移殖，感谢原作者。
+
+⚠ 实际测试验证码识别率不高，遇到识别错误请调用方主动重试。
+
 # 依赖
 
 `pip install -r requirements.txt`
+
+
 
  
